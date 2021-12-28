@@ -4,10 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Bem Seguro - Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
 	
@@ -26,10 +28,9 @@
 
 	    <div class="mb-3">
 	      <label>Senha:</label>
-	      <input type="password" class="form-control" placeholder="Entre com a sua senha" name="senha" value="wallacereislima@gmail.com">
+	      <input type="password" class="form-control" placeholder="Entre com a sua senha" name="senha" value="123456">
 	    </div>
-	    
-	    <p>Não possui uma conta? <a href="/aluno">Faça seu cadastro</a></p>
+	    <br>
 
 	    <button type="submit" class="btn btn-primary">Acessar</button>
 	  </form>
