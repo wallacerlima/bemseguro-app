@@ -12,7 +12,7 @@
       <c:if test="${not empty user}">
 	      <li><a href="/usuarios">Usuários</a></li>
 	      <li><a href="/segurados">Segurados</a></li>
-	      <li><a href="/apolices">Apólices</a></li>
+	      <li><a href="#">Apólices</a></li>
 	      <li><a href="#">Carros</a></li>
 	      <li><a href="#">Motos</a></li>
 	      <li><a href="#">Caminhões</a></li>
