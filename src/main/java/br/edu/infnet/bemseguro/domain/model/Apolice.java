@@ -4,13 +4,37 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TApolice")
 public class Apolice {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String numApolice;
 	private LocalDateTime data;
+	
+	@OneToOne(cascade = CascadeType.DETACH) 
+	@JoinColumn(name = "idSegurado")
 	private Segurado segurado;
+	
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Veiculo> itensSegurados;
+	
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
 	
 	public Apolice() {
 		data = LocalDateTime.now();
@@ -35,6 +59,10 @@ public class Apolice {
 	public LocalDateTime getData() {
 		return data;
 	}
+	
+	public void setData(LocalDateTime data) {
+		this.data = data;
+	}
 
 	public Segurado getSegurado() {
 		return segurado;
@@ -44,6 +72,14 @@ public class Apolice {
 		this.segurado = segurado;
 	}
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public List<Veiculo> getItensSegurados() {
 		return itensSegurados;
 	}

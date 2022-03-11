@@ -1,10 +1,18 @@
 package br.edu.infnet.bemseguro.domain.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.bemseguro.domain.exception.PossuiAntiFurtoException;
 
-public class Motocicleta extends Veiculo{
+@Entity
+@Table(name = "TMotocicleta")
+public class Motocicleta extends Veiculo {
 
 	private Boolean dispositivoAntiFurto;
+	
+	public Motocicleta() {
+	}
 	
 	public Motocicleta(Integer id, String placa, String uf, String chassi, String cor) {
 		super(id, placa, uf, chassi, cor);

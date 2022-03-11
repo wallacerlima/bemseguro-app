@@ -1,10 +1,18 @@
 package br.edu.infnet.bemseguro.domain.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import br.edu.infnet.bemseguro.domain.exception.QuantidadeEixosInvalidaException;
 
+@Entity
+@Table(name = "TCaminhao")
 public class Caminhao extends Veiculo {
 
 	private Integer eixos;
+	
+	public Caminhao() {
+	}
 	
 	public Caminhao(Integer id, String placa, String uf, String chassi, String cor) {
 		super(id, placa, uf, chassi, cor);

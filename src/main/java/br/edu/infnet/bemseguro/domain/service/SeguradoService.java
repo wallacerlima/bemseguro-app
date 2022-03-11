@@ -39,4 +39,8 @@ public class SeguradoService {
 
 		return seguradoRepository.findById(id).orElse(null);
 	}
+	
+	public Long obterQtd() {
+		return seguradoRepository.count();
+	}
 }

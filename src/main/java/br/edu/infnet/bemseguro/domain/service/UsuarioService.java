@@ -38,4 +38,8 @@ public class UsuarioService {
 		
 		usuarioRepository.deleteById(id);		
 	}
+	
+	public Long obterQtd() {
+		return usuarioRepository.count();
+	}
 }

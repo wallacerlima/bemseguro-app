@@ -7,14 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.bemseguro.domain.model.Usuario;
+import br.edu.infnet.bemseguro.domain.model.Apolice;
 
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
+public interface ApoliceRepository extends CrudRepository<Apolice, Integer> {
 
-	@Query("from Usuario u where u.email = :email and u.senha = :senha")
-	public Usuario autenticacao(String email, String senha);
+	@Query("from Apolice a where a.usuario.id = :userid")
+	List<Apolice> findAll(Integer userid, Sort by);
 	
-	public List<Usuario> findAll(Sort by);
+	List<Apolice> findAll(Sort by);
+
 	
 }
