@@ -53,6 +53,7 @@ public class ApoliceLoader implements ApplicationRunner {
 		Apolice apolice = new Apolice();
 		apolice.setNumApolice("12345678910");
 		apolice.setData(LocalDateTime.now());
+		apolice.setTipo("Tradicional");
 		apolice.setUsuario(usuario);
 		apolice.setItensSegurados(veiculos);
 		apolice.setSegurado(segurado);

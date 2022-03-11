@@ -1,11 +1,12 @@
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="ISO-8859-1"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Segurados</title>
+<title>Apólices</title>
 <!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="icon" href="img/icon.ico">
@@ -15,19 +16,13 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-	  <h2> Cadastramento de Segurados</h2>
+	  <h2> Cadastramento de Apólices</h2>
 	 	  
 	  <hr>
 	  
 	  <c:if test="${not empty mensagem}">
 		<div class="alert alert-success">
-		  <strong>Confirma��o!</strong> ${mensagem}
-		</div>	  
-	  </c:if>
-	  
-	  <c:if test="${not empty mensagemErro}">
-		<div class="alert alert-danger">
-		  <strong>Erro!</strong> ${mensagemErro}
+		  <strong>Confirmação!</strong> ${mensagem}
 		</div>	  
 	  </c:if>
 	  
@@ -36,36 +31,42 @@
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Nome</th>
-		        <th>CPF / CNPJ</th>
-		        <th>E-mail</th>	        
+		      	<th>Id</th>
+		        <th>Número</th>
+		        <th>Tipo</th>
+		        <th>Data</th>
+		        <th>Segurado</th>
+		        <th>Itens Segurados</th>
 		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		      <c:forEach var="a" items="${lista}">
 		      <tr>
-		        <td>${a.nome}</td>
-		        <td>${a.cpfCnpj}</td>
-		        <td>${a.email}</td>
-		        <td><a href='<c:url value="/segurado/${a.id}/excluir"/>'>excluir</a></td>
+		      	<td>${a.id}</td>
+		      	<td>${a.numApolice}</td>
+		      	<td>${a.tipo}</td>
+		        <td>${a.data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))}</td>
+		        <td>${a.segurado.nome}</td>
+		       	<td>${a.itensSegurados.size()}</td>
+		        <td><a href='<c:url value="/apolice/${a.id}/excluir"/>'>excluir</a></td>
 		      </tr>
 		      </c:forEach>
 		    </tbody>
 		  </table>	
-		  <h4>Total de segurados: ${lista.size()}</h4>
+		  <h4>Total de apólices: ${lista.size()}</h4>
 		  
 	  </c:if>  
 	  
 	  <c:if test="${empty lista}">
-	  	<h4>N�o existem segurados cadastrados!!!</h4>
+	  	<h4>Não existem apólices cadastradas!!!</h4>
 	  </c:if>
 	   
 	</div>
 	
 	<div class="container mt-3" align = "right">
-		<form action='<c:url value="/segurado"/>' method="get" >
-			<button type="submit" class="btn btn-primary">Novo</button>
+		<form action="/apolice" method="get" >
+			<button type="submit" class="btn btn-primary">Nova</button>
 		</form>
 	</div>
 

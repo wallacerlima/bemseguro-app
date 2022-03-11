@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bem Seguro - Gestão de Seguros</title>
+<title>Página Principal</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="icon" href="img/icon.ico">
 </head>
@@ -12,10 +12,15 @@
 	
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
-<div class="container mt-3">
-  <h1>Bem Seguro - Gestão de Seguros</h1>
+	<div class="container">
+		<h2>Quantidade de registros</h2>
+		<ul class="list-group">
+			<c:forEach var="m" items="${myMap}">
+				<li class="list-group-item">${m.key}<span class="badge">${m.value}</span></li>
+			</c:forEach>
+		</ul>
+	</div>
 
-</div>
 
 </body>
 </html>

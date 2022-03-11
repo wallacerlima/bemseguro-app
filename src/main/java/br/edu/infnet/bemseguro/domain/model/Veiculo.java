@@ -39,7 +39,7 @@ public abstract class Veiculo {
 	private String chassi;
 	private String cor;
 	
-	@ManyToMany(mappedBy = "cargas")
+	@ManyToMany(mappedBy = "itensSegurados")
 	@JsonIgnore
 	private List<Apolice> apolices;
 	

@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.bemseguro.domain.model.Endereco;
 import br.edu.infnet.bemseguro.domain.model.Segurado;
 import br.edu.infnet.bemseguro.domain.model.Usuario;
 import br.edu.infnet.bemseguro.domain.service.SeguradoService;
 
 @Controller
 public class SeguradoController {
-	
+
 	@Autowired
 	private SeguradoService seguradoService;
 
@@ -23,36 +24,40 @@ public class SeguradoController {
 
 		return "segurado/cadastro";
 	}
-	
+
 	@GetMapping(value = "/segurados")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
-		
+
 		model.addAttribute("lista", seguradoService.obterLista(usuario));
 		
 		return "segurado/lista";
 	}
 
 	@PostMapping(value = "/segurado/incluir")
-	public String incluir(Model model, Segurado segurado, @SessionAttribute("user") Usuario usuario) {
-		
+	public String incluir(Model model, Segurado segurado, Endereco endereco, @SessionAttribute("user") Usuario usuario) {
+
+		segurado.setEndereco(endereco);
+
 		segurado.setUsuario(usuario);
-		
+
 		seguradoService.incluir(segurado);
-		
-		model.addAttribute("mensagem", "O segurado "+segurado.getNome()+" foi cadastrado com sucesso!!!");
-		
+
+		model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi cadastrado com sucesso!!!");
+
 		return telaLista(model, usuario);
 	}
 
 	@GetMapping(value = "/segurado/{id}/excluir")
 	public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 
-		Segurado segurado = seguradoService.obterPorId(id);		
-		seguradoService.excluir(id);
+		Segurado segurado = seguradoService.obterPorId(id);
+		try {
+			seguradoService.excluir(id);
+			model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi removido com sucesso!!!");
+		} catch (Exception e) {
+			model.addAttribute("mensagemErro", "Impossivel remover o segurado " + segurado.getNome() + ", ele está associado à alguma apólice!!!");
+		}
 
-		model.addAttribute("mensagem", "O segurado "+segurado.getNome()+" foi removido com sucesso!!!");		
-		
 		return telaLista(model, usuario);
 	}
-
 }

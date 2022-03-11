@@ -17,7 +17,7 @@ import br.edu.infnet.bemseguro.domain.service.UsuarioService;
 @SessionAttributes("user")
 @Controller
 public class AcessoController {
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
 
@@ -25,15 +25,26 @@ public class AcessoController {
 	public String telaLogin() {
 		return "login";
 	}
-	
-	@GetMapping(value = "/logout")
-	public String telaLogout(HttpSession session, SessionStatus status) {
-		
-		status.setComplete();
-		
-		session.removeAttribute("user");
 
-		return "redirect:/";
+	@PostMapping(value = "/login")
+	public String acessar(Model model, @RequestParam String email, @RequestParam String senha) {
+
+		Usuario usuario = usuarioService.validar(email, senha);
+
+		if (usuario != null) {
+			model.addAttribute("user", usuario);
+
+			return "index";
+		} else {
+			model.addAttribute("msg", "Impossível realizar a autenticação: " + email + "!");
+
+			return "login";
+		}
+	}
+
+	@GetMapping(value = "/index")
+	public String telaInicial() {
+		return "index";
 	}
 
 	@GetMapping(value = "/")
@@ -41,19 +52,13 @@ public class AcessoController {
 		return "index";
 	}
 
-	@PostMapping(value = "/login")
-	public String acessar(Model model, @RequestParam String email, @RequestParam String senha) {
+	@GetMapping(value = "/logout")
+	public String telaLogout(HttpSession session, SessionStatus status) {
 
-		Usuario usuario = usuarioService.validar(email, senha);
-		
-		if(usuario != null) {
-			model.addAttribute("user", usuario);
-			
-			return "index";
-		} else {
-			model.addAttribute("msg", "Impossível realizar a autenticação: "+email+"!");
-			
-			return "login";
-		}
+		status.setComplete();
+
+		session.removeAttribute("user");
+
+		return "redirect:/";
 	}
 }

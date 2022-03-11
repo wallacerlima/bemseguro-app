@@ -23,6 +23,7 @@ public class Apolice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String numApolice;
+	private String tipo;
 	private LocalDateTime data;
 	
 	@OneToOne(cascade = CascadeType.DETACH) 
@@ -86,6 +87,14 @@ public class Apolice {
 
 	public void setItensSegurados(List<Veiculo> itensSegurados) {
 		this.itensSegurados = itensSegurados;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	@Override
