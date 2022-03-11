@@ -51,7 +51,7 @@
 		        <td>${v.uf}</td>
 		        <td>${v.chassi}</td>
 		        <td>${v.cor}</td>
-		        <td><a href='<c:url value="/veiculo/${c.id}/excluir"/>'>excluir</a></td>	
+		        <td><a href='<c:url value="/veiculo/${v.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>

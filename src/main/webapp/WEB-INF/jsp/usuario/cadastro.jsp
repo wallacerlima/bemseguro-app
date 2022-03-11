@@ -29,25 +29,28 @@
 	  	
 	  	<button type="submit" class="btn btn-primary">Buscar</button>
 	 </form>
+	 <br>
 	    
 
 	  <form action='<c:url value="/usuario/incluir"/>' method="post">
 	    <div class="mb-3 mt-3">
 	      <label>Nome:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o seu nome" name="nome" value="Luiz">
+	      <input type="text" class="form-control" placeholder="Entre com o seu nome" name="nome" value="Diego Melo">
 	    </div>
 
 	    <div class="mb-3 mt-3">
 	      <label>E-mail:</label>
-	      <input type="email" class="form-control" placeholder="Entre com o seu e-mail" name="email" value="Luiz@luiz.com">
+	      <input type="email" class="form-control" placeholder="Entre com o seu e-mail" name="email" value="diego.melo@gmail.com">
 	    </div>
 
 	    <div class="mb-3 mt-3">
 	      <label>Senha:</label>
-	      <input type="password" class="form-control" placeholder="Entre com o sua senha" name="senha" value="123">
+	      <input type="password" class="form-control" placeholder="Entre com o sua senha" name="senha" value="123456">
 	    </div>
 	    
 	    <c:import url="/WEB-INF/jsp/endereco.jsp"/>
+
+		<br>
 
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>

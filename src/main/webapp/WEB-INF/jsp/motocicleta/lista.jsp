@@ -53,7 +53,7 @@
 		        <td>${m.chassi}</td>
 		        <td>${m.cor}</td>
 		        <td>${m.dispositivoAntiFurto ? "Sim" : "Não"}</td>
-		        <td><a href='<c:url value="/motocicleta/${c.id}/excluir"/>'>excluir</a></td>	
+		        <td><a href='<c:url value="/motocicleta/${m.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>
@@ -68,7 +68,7 @@
 	</div>
 	
 	<div class="container mt-3" align = "right">
-	  <form action='<c:url value="/carro"/>' method="get">
+	  <form action='<c:url value="/motocicleta"/>' method="get">
 	    <button type="submit" class="btn btn-primary">Novo</button>
 	  </form>
 	</div>

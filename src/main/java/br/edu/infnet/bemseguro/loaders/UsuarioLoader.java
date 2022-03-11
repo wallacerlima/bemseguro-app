@@ -21,7 +21,7 @@ public class UsuarioLoader implements ApplicationRunner {
 
 		Usuario usuario = new Usuario();
 		usuario.setEmail("wallacereislima@gmail.com");
-		usuario.setNome("wallace.lima");
+		usuario.setNome("Wallace lima");
 		usuario.setSenha("123456");
 		usuario.setAdmin(true);
 		

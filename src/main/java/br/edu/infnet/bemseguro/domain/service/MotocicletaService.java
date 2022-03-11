@@ -22,7 +22,7 @@ public class MotocicletaService {
 
 	public List<Motocicleta> obterLista(Usuario usuario) {
 		 return (List<Motocicleta>) motocicletaRepository.findAll(usuario.getId(),
-		 Sort.by(Sort.Direction.ASC, "chassi"));
+		 Sort.by(Sort.Direction.ASC, "id"));
 	}
 
 	public void incluir(Motocicleta motocicleta) {

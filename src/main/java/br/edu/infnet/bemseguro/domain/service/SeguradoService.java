@@ -3,6 +3,7 @@ package br.edu.infnet.bemseguro.domain.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.bemseguro.domain.model.Segurado;
@@ -22,7 +23,7 @@ public class SeguradoService {
 	
 	public List<Segurado> obterLista(Usuario usuario){
 
-		return (List<Segurado>) seguradoRepository.findAll(usuario.getId());
+		return (List<Segurado>) seguradoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
 	}
 
 	public void incluir(Segurado segurado) {

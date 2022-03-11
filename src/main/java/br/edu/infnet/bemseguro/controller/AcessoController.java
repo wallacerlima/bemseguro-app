@@ -36,7 +36,7 @@ public class AcessoController {
 
 			return "index";
 		} else {
-			model.addAttribute("msg", "Impossível realizar a autenticação: " + email + "!");
+			model.addAttribute("msg", "Usuário ou senha inválidos: " + email + "!");
 
 			return "login";
 		}

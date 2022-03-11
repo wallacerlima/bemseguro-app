@@ -23,7 +23,7 @@ public class ApoliceService {
 	}
 
 	public List<Apolice> obterLista(Usuario usuario) {
-		 return apoliceRepository.findAll(usuario.getId(),Sort.by(Sort.Direction.ASC, "data"));
+		 return apoliceRepository.findAll(usuario.getId(),Sort.by(Sort.Direction.DESC, "data"));
 	}
 
 	public void incluir(Apolice Apolice) {
