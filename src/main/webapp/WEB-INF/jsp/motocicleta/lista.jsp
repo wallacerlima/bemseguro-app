@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Veiculos</title>
-<!--   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<title>Carros</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link rel="icon" href="img/icon.ico">
 </head>
@@ -15,10 +14,10 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-	  <h2> Cadastramento de Veiculos</h2>
-	 	  
-	  <hr>
+	  <h2> Cadastramento de Motocicletas</h2>
 	  
+	   <hr>
+	 	  
 	  <c:if test="${not empty mensagem}">
 		<div class="alert alert-success">
 		  <strong>Confirmação!</strong> ${mensagem}
@@ -36,40 +35,40 @@
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Navio</th>
-		        <th>Documento</th>
-		        <th>Porto</th>
+		        <th>Id</th>
+		        <th>Placa</th>
+		        <th>UF</th>
 		        <th>Chassi</th>
-		        <th>Modelo</th>
-		        <th>Montadora</th>
+		        <th>Cor</th>
+		        <th>Dispositivo Antifurto</th>
 		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <c:forEach var="v" items="${lista}">
+		      <c:forEach var="m" items="${lista}">
 		      <tr>
-		        <td>${v.navio}</td>
-		        <td>${v.documento}</td>
-		        <td>${v.porto}</td>
-		        <td>${v.chassi}</td>
-		        <td>${v.modelo}</td>
-		        <td>${v.montadora}</td>
-		        <td><a href='<c:url value="/veiculo/${v.id}/excluir"/>'>excluir</a></td>	
+		      	<td>${m.id}</td>
+		        <td>${m.placa}</td>
+		        <td>${m.uf}</td>
+		        <td>${m.chassi}</td>
+		        <td>${m.cor}</td>
+		        <td>${m.dispositivoAntiFurto ? "Sim" : "Não"}</td>
+		        <td><a href='<c:url value="/motocicleta/${c.id}/excluir"/>'>excluir</a></td>	
 		      </tr>
 		      </c:forEach>
 		    </tbody>
 		  </table>
-		  <h4>Total de veiculos: ${lista.size()}</h4>	
+		  <h4>Total de motocicletas: ${lista.size()}</h4>	
 	  </c:if>  
 	    
 	  <c:if test="${empty lista}">
-	  	<h4>Não existem veiculos cadastrados!!!</h4>
+	  	<h4>Não existem motocicletas cadastradas!!!</h4>
 	  </c:if>
 	   
 	</div>
 	
 	<div class="container mt-3" align = "right">
-	  <form action='<c:url value="/veiculo"/>'  method="get">
+	  <form action='<c:url value="/carro"/>' method="get">
 	    <button type="submit" class="btn btn-primary">Novo</button>
 	  </form>
 	</div>

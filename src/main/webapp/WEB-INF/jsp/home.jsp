@@ -15,7 +15,7 @@
 <div class="container mt-3">
   <h1>Engenharia de Software - Java</h1>
   <h2>PGPJAV01C2-71-P1 - Java Web</h2>
-  <h3><a href="https://github.com/Lu1zF3rnand0/appagendamentocarga">Bem Seguro - Sistema de gestão de seguros</a></h3>
+  <h3><a href="https://github.com/wallacerlima/bemseguro-app">Bem Seguro - Sistema de gestão de seguros</a></h3>
 </div>
 
 

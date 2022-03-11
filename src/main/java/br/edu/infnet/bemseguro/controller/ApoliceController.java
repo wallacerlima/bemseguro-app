@@ -62,9 +62,8 @@ public class ApoliceController {
 		apolice.setUsuario(usuario);			
 		apoliceService.incluir(apolice);
 		model.addAttribute("mensagem", "O apolice de número "+apolice.getNumApolice()+" foi cadastrada com sucesso!!!");
-
 			
-		return telaLista(model, usuario);
+		return "redirect:/apolices";
 	}
 
 	@GetMapping(value = "/apolice/{id}/excluir")

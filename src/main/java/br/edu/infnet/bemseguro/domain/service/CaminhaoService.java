@@ -18,11 +18,11 @@ public class CaminhaoService {
 	private CaminhaoRepository caminhaoRepository;
 
 	public List<Caminhao> obterLista() {
-		return caminhaoRepository.findAll(Sort.by(Sort.Direction.ASC, "mercadoria"));
+		return caminhaoRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 	}
 
 	public List<Caminhao> obterLista(Usuario usuario) {
-		return caminhaoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "mercadoria"));
+		return caminhaoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "id"));
 	}
 
 	public void incluir(Caminhao caminhao) {

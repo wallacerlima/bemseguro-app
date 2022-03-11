@@ -15,7 +15,7 @@
 	      <li><a href='<c:url value="/apolices"/>'>Apólice</a></li>
 	      <li><a href='<c:url value="/veiculos"/>'>Veículo</a></li>
 	      <li><a href='<c:url value="/carros"/>'>Carro</a></li>
-	      <li><a href='<c:url value="/motos"/>'>Motocicleta</a></li>
+	      <li><a href='<c:url value="/motocicletas"/>'>Motocicleta</a></li>
 	      <li><a href='<c:url value="/caminhoes"/>'>Caminhão</a></li>
       </c:if>
     </ul>

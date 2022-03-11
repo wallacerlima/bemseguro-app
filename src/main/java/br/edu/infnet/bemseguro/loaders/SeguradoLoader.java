@@ -23,10 +23,13 @@ public class SeguradoLoader implements ApplicationRunner {
 		Usuario usuario = new Usuario();
 		usuario.setId(1);
 		
-		Segurado segurado = new Segurado("Wallace Lima", "12345678912", "wallacereislima@gmail.com");
-		segurado.setUsuario(usuario);
+		Segurado segurado1 = new Segurado("Jorge Santos", "12345678912", "jorge.santos@gmail.com");
+		segurado1.setUsuario(usuario);
+		seguradoService.incluir(segurado1);
 		
-		seguradoService.incluir(segurado);
+		Segurado segurado2 = new Segurado("Maria Pereira", "01258965412", "maria.pereira@gmail.com");
+		segurado2.setUsuario(usuario);
+		seguradoService.incluir(segurado2);
 		
 	}
 }

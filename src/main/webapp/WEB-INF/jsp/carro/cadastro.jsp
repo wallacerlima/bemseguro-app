@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Cadastro de Conteiner</title>
+<title>Cadastro de Carros</title>
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="icon" href="img/icon.ico">
@@ -14,7 +14,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container mt-3">
-	  <h2>Cadastramento de Conteineres</h2>
+	  <h2>Cadastramento de Carros</h2>
 	  
 	  <c:if test="${not empty mensagem}">
 		<div class="alert alert-success">
@@ -22,54 +22,35 @@
 		</div>	  
 	  </c:if>
 	  
-	  <form action='<c:url value="/conteiner/incluir"/>' method="post">
+	  <form action='<c:url value="/carro/incluir"/>' method="post">
 	    <div class="mb-3 mt-3">
-	    <label>Navio:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o nome do navio" name="navio" value="Navio Teste">
+	    <label>Placa:</label>
+	      <input type="text" class="form-control" placeholder="Entre com a placa" name="placa" value="KHY0944">
 	    </div>
 	    
 	    <div class="mb-3 mt-3">
-	      <label>Documento:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o numero do documento" name="documento" value="21/12345-6"> 
+	      <label>UF:</label>
+	      <input type="text" class="form-control" placeholder="Entre com a UF" name="uf" value="RJ"> 
 	    </div>
 	    
 	    <div class="mb-3 mt-3">
-	    <label>Porto:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o porto" name="porto" value="BRRIO">
+	    <label>Chassi:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o chassi" name="chassi" value="PORORE9984312DSD">
 	    </div>
 	    
 	    <div class="mb-3 mt-3">
-	    <label>Conteiner:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o numero do conteiner" name="numero" value="MSC2554456">
+	    <label>Cor:</label>
+	      <input type="text" class="form-control" placeholder="Entre com a cor" name="cor" value="Azul">
 	    </div>
-	    
-<!--      <div class="mb-3 mt-3">
-	    <label>Tamanho:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o tamanho do conteiner" name="tamanho" value="40">
-	    </div>
--->		    
-
-   	    <div class="mb-3 mt-3" style="margin-top:20px">
-	    	<label>Tamanho:</label>
-	    	<div class="radio">
-				<label style="margin-right:10px"><input type="radio" name="tamanho" value="20">20</label>  
-				<label><input type="radio" name="tamanho" value="40">40</label>
-			</div>
-		</div>
 		
 		<div class="mb-3 mt-3" style="margin-top:20px; margin-bottom:20px">
-	    	<label>Status:</label>
+	    	<label>Possui Kit Gás:</label>
 	    	<div class="radio">
-				<label style="margin-right:10px"><input type="radio" name="status" value="Cheio">Cheio</label>  
-				<label><input type="radio" name="status" value="Vazio">Vazio</label>
+				<label style="margin-right:10px"><input type="radio" name="possuiKitGas" value="true">Sim</label>  
+				<label><input type="radio" name="possuiKitGas" value="false">Não</label>
 			</div>
 		</div>
 	       
-<!--	<div class="mb-3 mt-3">
-	    <label>Status:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o status do conteiner" name="status" value="cheio">
-	    </div>
--->		
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>
 	  </form>
 	</div>
