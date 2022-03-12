@@ -43,7 +43,7 @@ public class CaminhaoController {
 		caminhao.setUsuario(usuario);
 
 		caminhaoService.incluir(caminhao);
-		model.addAttribute("mensagem", "O caminhão " + caminhao.getPlaca() + " foi cadastrado com sucesso!!!");
+		model.addAttribute("mensagem", "O caminhão " + caminhao.getPlaca() + " foi cadastrado com sucesso!");
 		return telaLista(model, usuario);
 	}
 
@@ -56,7 +56,7 @@ public class CaminhaoController {
 			caminhaoService.excluir(id);
 			model.addAttribute("mensagem", "O veículo " + caminhao.getPlaca() + " foi removida com sucesso!!!");
 		} catch (Exception e) {
-			model.addAttribute("mensagemErro", "Impossivel remover o caminhão " + caminhao.getPlaca() + ", ele está associado à alguma apólice!!!");
+			model.addAttribute("mensagemErro", "Não foi possível remover o caminhão " + caminhao.getPlaca() + ", ele está associado à alguma apólice!");
 		}
 
 		return telaLista(model, usuario);

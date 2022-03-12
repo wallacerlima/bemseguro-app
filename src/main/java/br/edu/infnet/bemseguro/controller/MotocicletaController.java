@@ -42,7 +42,7 @@ public class MotocicletaController {
 		motocicleta.setUsuario(usuario);
 
 		motocicletaService.incluir(motocicleta);
-		model.addAttribute("mensagem", "O motocicleta " + motocicleta.getChassi() + " foi cadastrado com sucesso!!!");
+		model.addAttribute("mensagem", "A motocicleta " + motocicleta.getChassi() + " foi cadastrada com sucesso!");
 		return telaLista(model, usuario);
 	}
 
@@ -53,9 +53,9 @@ public class MotocicletaController {
 
 		try {
 			motocicletaService.excluir(id);
-			model.addAttribute("mensagem", "A motocicleta " + motocicleta.getPlaca() + " foi removida com sucesso!!!");
+			model.addAttribute("mensagem", "A motocicleta " + motocicleta.getPlaca() + " foi removida com sucesso!");
 		} catch (Exception e) {
-			model.addAttribute("mensagemErro", "Impossivel remover o motocicleta " + motocicleta.getPlaca() + ", ela está associada à alguma apólice!!!");
+			model.addAttribute("mensagemErro", "Não foi possível remover a motocicleta " + motocicleta.getPlaca() + ", ela está associada à alguma apólice!");
 		}
 
 		return telaLista(model, usuario);

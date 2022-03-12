@@ -42,7 +42,7 @@ public class SeguradoController {
 
 		seguradoService.incluir(segurado);
 
-		model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi cadastrado com sucesso!!!");
+		model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi cadastrado com sucesso!");
 
 		return telaLista(model, usuario);
 	}
@@ -53,9 +53,9 @@ public class SeguradoController {
 		Segurado segurado = seguradoService.obterPorId(id);
 		try {
 			seguradoService.excluir(id);
-			model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi removido com sucesso!!!");
+			model.addAttribute("mensagem", "O segurado " + segurado.getNome() + " foi removido com sucesso!");
 		} catch (Exception e) {
-			model.addAttribute("mensagemErro", "Impossivel remover o segurado " + segurado.getNome() + ", ele está associado à alguma apólice!!!");
+			model.addAttribute("mensagemErro", "Não foi possível remover o segurado " + segurado.getNome() + ", ele está associado à alguma apólice!");
 		}
 
 		return telaLista(model, usuario);

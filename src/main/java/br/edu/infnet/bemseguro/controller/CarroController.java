@@ -42,7 +42,7 @@ public class CarroController {
 		carro.setUsuario(usuario);
 
 		carroService.incluir(carro);
-		model.addAttribute("mensagem", "O carro " + carro.getPlaca() + " foi cadastrado com sucesso!!!");
+		model.addAttribute("mensagem", "O carro " + carro.getPlaca() + " foi cadastrado com sucesso!");
 		return telaLista(model, usuario);
 	}
 
@@ -55,7 +55,7 @@ public class CarroController {
 			carroService.excluir(id);
 			model.addAttribute("mensagem", "O carro " + carro.getPlaca() + " foi removido com sucesso!!!");
 		} catch (Exception e) {
-			model.addAttribute("mensagemErro", "Impossivel remover o carro " + carro.getPlaca() + ", ele está associado à alguma apólice!!!");
+			model.addAttribute("mensagemErro", "Não foi possível remover o carro " + carro.getPlaca() + ", ele está associado à alguma apólice!");
 		}
 
 		return telaLista(model, usuario);

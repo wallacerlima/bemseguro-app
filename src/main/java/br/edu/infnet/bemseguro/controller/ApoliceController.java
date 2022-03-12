@@ -61,7 +61,7 @@ public class ApoliceController {
 		apolice.setItensSegurados(veiculos);			
 		apolice.setUsuario(usuario);			
 		apoliceService.incluir(apolice);
-		model.addAttribute("mensagem", "O apolice de número "+apolice.getNumApolice()+" foi cadastrada com sucesso!!!");
+		model.addAttribute("mensagem", "A apólice de número "+apolice.getNumApolice()+" foi cadastrada com sucesso!");
 			
 		return "redirect:/apolices";
 	}
@@ -72,7 +72,7 @@ public class ApoliceController {
 		Apolice apolice = apoliceService.obterPorId(id);		
 		apoliceService.excluir(id);
 
-		model.addAttribute("mensagem", "O apolice numero "+apolice.getId()+" foi removido com sucesso!!!");
+		model.addAttribute("mensagem", "A apólice número "+apolice.getId()+" foi removido com sucesso!");
 		
 		return telaLista(model, usuario);
 	}

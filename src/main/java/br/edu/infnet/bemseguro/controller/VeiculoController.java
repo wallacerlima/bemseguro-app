@@ -32,9 +32,9 @@ public class VeiculoController {
 		System.out.println(veiculo.getId());
 		try {
 			veiculoService.excluir(id);
-			model.addAttribute("mensagem", "A veiculo " + veiculo.getPlaca() + " foi removido com sucesso!!!");
+			model.addAttribute("mensagem", "O veículo " + veiculo.getPlaca() + " foi removido com sucesso!");
 		} catch (Exception e) {
-			model.addAttribute("mensagemErro", "Impossivel remover o veiculo " + veiculo.getPlaca() + ", ele está associado à alguma apólice!!!");
+			model.addAttribute("mensagemErro", "Não foi possível remover o veículo " + veiculo.getPlaca() + ", ele está associado à alguma apólice!");
 		}
 
 		return telaLista(model, usuario);
