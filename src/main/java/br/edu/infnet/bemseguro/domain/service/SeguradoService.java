@@ -3,45 +3,43 @@ package br.edu.infnet.bemseguro.domain.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.bemseguro.client.ISeguradoClient;
 import br.edu.infnet.bemseguro.domain.model.Segurado;
 import br.edu.infnet.bemseguro.domain.model.Usuario;
-import br.edu.infnet.bemseguro.domain.repository.SeguradoRepository;
 
 @Service
 public class SeguradoService {
 	
 	@Autowired
-	private SeguradoRepository seguradoRepository;
+	private ISeguradoClient seguradoClient;
 
 	public List<Segurado> obterLista(){
 
-		return (List<Segurado>) seguradoRepository.findAll();
+		return (List<Segurado>) seguradoClient.obterLista();
 	}
 	
 	public List<Segurado> obterLista(Usuario usuario){
 
-		return (List<Segurado>) seguradoRepository.findAll(usuario.getId(), Sort.by(Sort.Direction.ASC, "nome"));
+		return seguradoClient.obterListaPorUser(usuario.getId());
 	}
 
 	public void incluir(Segurado segurado) {
 
-		seguradoRepository.save(segurado);
+		seguradoClient.incluir(segurado);
 	}
 	
 	public void excluir(Integer id) {
 
-		seguradoRepository.deleteById(id);
+		seguradoClient.excluir(id);
 	}
 	
 	public Segurado obterPorId(Integer id) {
-
-		return seguradoRepository.findById(id).orElse(null);
+		return seguradoClient.obterPorId(id);
 	}
 	
-	public Long obterQtd() {
-		return seguradoRepository.count();
+	public Integer obterQtd() {
+		return seguradoClient.obterLista().size();
 	}
 }

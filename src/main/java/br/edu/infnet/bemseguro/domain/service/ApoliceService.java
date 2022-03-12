@@ -3,44 +3,41 @@ package br.edu.infnet.bemseguro.domain.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.bemseguro.client.IApoliceClient;
 import br.edu.infnet.bemseguro.domain.model.Apolice;
 import br.edu.infnet.bemseguro.domain.model.Usuario;
-import br.edu.infnet.bemseguro.domain.repository.ApoliceRepository;
 
 
 @Service
 public class ApoliceService {
 
 	@Autowired
-	private ApoliceRepository apoliceRepository;
+	private IApoliceClient apoliceClient;
 
 	public List<Apolice> obterLista() {
-
-		return apoliceRepository.findAll(Sort.by(Sort.Direction.ASC, "transportador"));
+		return apoliceClient.obterLista();
 	}
 
 	public List<Apolice> obterLista(Usuario usuario) {
-		 return apoliceRepository.findAll(usuario.getId(),Sort.by(Sort.Direction.DESC, "data"));
+		 return apoliceClient.obterLista(usuario.getId());
 	}
 
 	public void incluir(Apolice Apolice) {
-		apoliceRepository.save(Apolice);
+		apoliceClient.incluir(Apolice);
 
 	}
 
 	public void excluir(Integer id) {
-		apoliceRepository.deleteById(id);
+		apoliceClient.excluir(id);
 	}
 
 	public Apolice obterPorId(Integer id) {
-		
-		return apoliceRepository.findById(id).orElse(null);
+		return apoliceClient.obterPorId(id);
 	}
 
-	public Long obterQtd() {
-		return apoliceRepository.count();
+	public Integer obterQtd() {
+		return apoliceClient.obterLista().size();
 	}
 }

@@ -36,7 +36,7 @@ public class ApoliceController {
 		
 	    model.addAttribute("segurados", seguradoService.obterLista(usuario));
 		
-		model.addAttribute("veiculos", veiculoService.obterLista(usuario));
+		model.addAttribute("veiculos", veiculoService.obterLista(usuario.getId()));
 
 		return "apolice/cadastro";
 	}

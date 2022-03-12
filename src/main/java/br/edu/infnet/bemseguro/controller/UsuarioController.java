@@ -43,7 +43,7 @@ public class UsuarioController {
 	@GetMapping(value = "/usuario/{id}/excluir")
 	public String excluir(Model model, @PathVariable Integer id) {
 
-		Usuario usuario = usuarioService.obterPorId(id);		
+		Usuario usuario = usuarioService.obterPorId(id);	
 		usuarioService.excluir(id);
 		model.addAttribute("mensagem", "O usuário "+usuario.getNome()+" foi removido com sucesso!!!");		
 		

@@ -20,7 +20,7 @@ public class VeiculoController {
 	@GetMapping(value = "/veiculos")
 	public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
 
-		model.addAttribute("lista", veiculoService.obterLista(usuario));
+		model.addAttribute("lista", veiculoService.obterLista(usuario.getId()));
 		return "veiculo/lista";
 	}
 

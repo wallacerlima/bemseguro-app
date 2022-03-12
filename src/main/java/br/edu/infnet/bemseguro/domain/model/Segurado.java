@@ -1,33 +1,15 @@
 package br.edu.infnet.bemseguro.domain.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "TSegurado")
 public class Segurado {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	private String nome;
 	private String cpfCnpj;
 	private String email;
 	
-	@ManyToOne
-	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "idEndereco")
 	private Endereco endereco;
 	
 	public Segurado() {

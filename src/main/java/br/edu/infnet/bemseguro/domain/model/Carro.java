@@ -1,12 +1,7 @@
 package br.edu.infnet.bemseguro.domain.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 import br.edu.infnet.bemseguro.domain.exception.PossuiKitGasException;
 
-@Entity
-@Table(name = "TCarro")
 public class Carro extends Veiculo {
 	
 	private Boolean possuiKitGas;

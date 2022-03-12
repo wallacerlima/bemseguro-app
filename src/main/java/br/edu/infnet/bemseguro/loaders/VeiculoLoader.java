@@ -2,7 +2,6 @@
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,7 @@ import br.edu.infnet.bemseguro.domain.service.MotocicletaService;
 
 @Component
 @Order(3)
-public class VeiculoLoader implements ApplicationRunner {
+public class VeiculoLoader {
 
 
 	@Autowired
@@ -28,7 +27,6 @@ public class VeiculoLoader implements ApplicationRunner {
 	@Autowired
 	private CaminhaoService caminhaoService;
 
-	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
 		Usuario usuario = new Usuario();

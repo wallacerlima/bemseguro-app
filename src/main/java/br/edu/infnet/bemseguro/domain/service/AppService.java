@@ -34,7 +34,7 @@ public class AppService {
 	@SuppressWarnings("rawtypes")
 	public Map qtds () {
 		
-		Map<String, Long> mapa = new HashMap<>();
+		Map<String, Integer> mapa = new HashMap<>();
 		mapa.put("Usuários", usuarioService.obterQtd());
 		mapa.put("Segurados", seguradoService.obterQtd());
 		mapa.put("Veiculos", veiculoService.obterQtd());

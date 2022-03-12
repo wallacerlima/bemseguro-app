@@ -2,54 +2,17 @@ package br.edu.infnet.bemseguro.domain.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
-@Entity
-@Table(name = "TUsuario")
 public class Usuario {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
 	private Integer id;
-	
 	private String nome;
-	
-	@Column(unique=true)
 	private String email;
-	
 	private String senha;
-	
 	private boolean admin;
-	
-	@OneToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "idEndereco")
 	private Endereco endereco;
 	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
-	@JoinColumn(name = "idUsuario")
-	@JsonBackReference(value="usuario-client")
 	private List<Segurado> segurados;
-	
-	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
-	@JoinColumn(name = "idUsuario")
-	@JsonBackReference(value="user-veiculos")
 	private List<Veiculo> veiculos;
-	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "idUsuario")
-	@JsonBackReference(value="user-apolice")
 	private List<Apolice> apolices;
 	
 	public Usuario() {
