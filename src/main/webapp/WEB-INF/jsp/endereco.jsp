@@ -1,4 +1,4 @@
-	    
+
 	    <div class="mb-3 mt-3">
 	      <label>CEP:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o seu CEP" name="cep" value="${endereco.cep}">
@@ -28,3 +28,4 @@
 	      <label>UF:</label>
 	      <input type="text" class="form-control" placeholder="Entre com o seu nome" name="uf" value="${endereco.uf}">
 	    </div>
+	    <br>
